@@ -1,0 +1,15 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    fstream input, output;
+    input.open("a.in", ios::in);
+    output.open("a.out", ios::out);
+    int K, N, line, number_line;
+    input >> K >> N;
+    line = (N - 1) / K + 1;
+    number_line = (N - 1) % K + 1;
+    output << line;
+    output << " ";
+    output << number_line;
+}

@@ -1,0 +1,12 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    unsigned long long int x, k;
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    input >> x >> k;
+    x = (x >> k) & 1;
+    output.open("output.txt", ios::out);
+    output << x;
+}

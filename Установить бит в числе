@@ -1,0 +1,12 @@
+#include <iostream>
+//#include <fstream>
+//#include <cmath>
+using namespace std;
+int main(){
+    //fstream input, output;
+    //input.open("input.txt", ios::in);
+    //output.open("output.txt", ios::out);
+    int n, i;
+    cin >> n >> i;
+    cout << (n | (1 << i));
+}

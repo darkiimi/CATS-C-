@@ -1,0 +1,56 @@
+#include <iostream>
+#include <fstream>
+//#include <cmath>
+using namespace std;
+int main(){
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    int sausages, cat, dog;
+    input >> sausages >> cat >> dog;
+    int eaten_cat = 0; int eaten_dog = 0;
+    if (sausages > (cat + dog)){
+        while (sausages > (cat + dog)){
+            sausages = sausages - cat - dog;
+            eaten_dog = eaten_dog + dog;
+            eaten_cat = eaten_cat + cat;
+        }
+        output << eaten_cat << " ";
+        output << eaten_dog << " ";
+        return 0;
+    }
+    else{
+        if (cat > dog){
+            if (sausages < cat){
+                output << eaten_cat + sausages << " ";
+                output << eaten_dog;
+                return 0;
+            }
+            else{
+                sausages = sausages - cat;
+                output << eaten_cat + cat << " ";
+                output << eaten_dog + sausages;
+                return 0;
+            }
+        }
+        if (cat < dog){
+            if (sausages < dog){
+                output << eaten_cat << " ";
+                output << eaten_dog + sausages;
+                return 0;
+            }
+            else{
+                sausages = sausages - dog;
+                output << eaten_cat + sausages << " ";
+                output << eaten_dog + dog;
+                return 0;
+            }
+        }
+        if (cat == dog){
+            sausages = sausages / 2;
+            output << eaten_cat + sausages << " ";
+            output << eaten_dog + sausages;
+            return 0;
+        }
+    }
+}

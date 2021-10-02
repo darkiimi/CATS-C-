@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int budget, priceK, lightK, laptopK, routerK;
+    cin >> budget;
+    cin >> priceK;
+    cin >> lightK;
+    cin >> laptopK;
+    cin >> routerK;
+    cout << budget / (priceK*2*lightK + priceK*9*laptopK + priceK*24*routerK);
+    
+}

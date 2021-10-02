@@ -1,0 +1,18 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <stdlib.h>
+using namespace std;
+int main(){
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    int number_page1, number_page2;
+    input >> number_page1 >> number_page2;
+    if ((max(number_page1, number_page2) + min(number_page1, number_page2) - 1) % 4 == 0){
+        output << number_page1 + number_page2 - 1;
+    }
+    else{
+        output << "0";
+    }
+}

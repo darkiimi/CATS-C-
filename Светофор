@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    string traffic_light_color;
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    input >> traffic_light_color;
+    if (traffic_light_color == "GREEN"){
+       output << "YES";
+    }
+    else{
+       output << "NO";
+   }
+}

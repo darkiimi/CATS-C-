@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    int hours, minutes, left_hours, left_minutes;
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    input >> hours;
+    input >> minutes;
+    if ((minutes > 0) && (hours <= 23)){
+        left_hours = 24 - hours - 1;
+        output << left_hours;
+        output << " ";
+        left_minutes = 60 - minutes;
+        output << left_minutes;
+    }
+    if ((minutes == 0) && (hours <= 23)){
+        left_hours = 24 - hours;
+        output << left_hours;
+        output << " ";
+        left_minutes = 0;
+        output << left_minutes;
+    }
+}

@@ -1,0 +1,12 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    float iNumber1, iNumber2, division;
+    cin >> iNumber1;
+    cin >> iNumber2;
+    division = iNumber1 / iNumber2;
+    cout << division;
+    return 0;
+}

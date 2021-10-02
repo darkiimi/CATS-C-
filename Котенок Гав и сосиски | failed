@@ -1,12 +1,14 @@
 #include <iostream>
 #include <fstream>
-//#include <cmath>
+#include <cmath>
+#include <math.h>
 using namespace std;
 int main(){
     fstream input, output;
     input.open("input.txt", ios::in);
     output.open("output.txt", ios::out);
-    int sausages, cat, dog;
+    float cat, dog;
+    float sausages, skorc, skord;
     input >> sausages >> cat >> dog;
     int eaten_cat = 0; int eaten_dog = 0;
     if (sausages > (cat + dog)){
@@ -15,42 +17,63 @@ int main(){
             eaten_dog = eaten_dog + dog;
             eaten_cat = eaten_cat + cat;
         }
-        output << eaten_cat << " ";
-        output << eaten_dog << " ";
-        return 0;
+        if (cat / dog > 1){
+                skorc = cat / dog;
+                skorc = int(skorc);
+                skord = dog / cat * skorc;
+                while (sausages > 1){
+                    sausages = sausages - skorc - skord;
+                    eaten_cat += skorc;
+                    eaten_dog += skord;
+                }
+                output << eaten_cat - cat<< " ";
+                output << eaten_dog - dog;
+            }
+        else{
+                skord = dog / cat;
+                skord = int(skord);
+                skorc = cat / dog * skord;
+                while (sausages >= 1){
+                    sausages = sausages - skorc - skord;
+                    eaten_cat += skorc;
+                    eaten_dog += skord;
+                }  
+                output << eaten_cat - cat << " ";
+                output << eaten_dog - dog; 
+        } 
+        
     }
     else{
-        if (cat > dog){
-            if (sausages < cat){
-                output << eaten_cat + sausages << " ";
-                output << eaten_dog;
-                return 0;
-            }
-            else{
-                sausages = sausages - cat;
-                output << eaten_cat + cat << " ";
-                output << eaten_dog + sausages;
-                return 0;
-            }
-        }
-        if (cat < dog){
-            if (sausages < dog){
-                output << eaten_cat << " ";
-                output << eaten_dog + sausages;
-                return 0;
-            }
-            else{
-                sausages = sausages - dog;
-                output << eaten_cat + sausages << " ";
-                output << eaten_dog + dog;
-                return 0;
-            }
-        }
         if (cat == dog){
-            sausages = sausages / 2;
-            output << eaten_cat + sausages << " ";
-            output << eaten_dog + sausages;
-            return 0;
+        sausages = sausages / 2;
+        output << eaten_cat + sausages << " ";
+        output << eaten_dog + sausages;
         }
-    }
-}
+        else{
+            if (cat / dog > 1){
+                skorc = cat / dog;
+                skorc = int(skorc);
+                skord = dog / cat * skorc;
+                while (sausages > 1){
+                    sausages = sausages - skorc - skord;
+                    eaten_cat += skorc;
+                    eaten_dog += skord;
+                }
+                output << eaten_cat << " ";
+                output << eaten_dog;
+            }
+            else{
+                skord = dog / cat;
+                skord = int(skord);
+                skorc = cat / dog * skord;
+                while (sausages >= 1){
+                    sausages = sausages - skorc - skord;
+                    eaten_cat += skorc;
+                    eaten_dog += skord;
+                }  
+                output << eaten_cat << " ";
+                output << eaten_dog; 
+            }
+        }
+   }
+}    

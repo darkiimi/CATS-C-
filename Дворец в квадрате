@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    int area, area_castle;
+    input >> area >> area_castle;
+    if ((area_castle - area * area) < 0) {
+        output << "-1";
+    }
+    else{
+        output << area_castle - area * area;
+    }
+}

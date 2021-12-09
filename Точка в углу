@@ -1,0 +1,34 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream output, input;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    
+    int x1, x2, y1, y2, x, y;
+    int xcent, ycent;
+    input >> x1 >> y1 >> x2 >> y2 >> x >> y;
+    
+    if (x1 == y1 && y1 == x2 && x2 == y2 && y2 == x && x == y)
+    {
+        output << "CORNER";
+    }
+    else
+    {
+        xcent = (x1 + x2) / 2;
+        ycent = (y1 + y2) / 2;
+        
+        if ( (((xcent + x1) / 2 < x) && (x < (xcent + x2) / 2)) && (((ycent + y1) / 2 < y) && (y < (ycent + y2) / 2)) )
+        {
+            output << "CENTER";
+        }
+        else
+        {
+            output << "CORNER";
+        }
+    }
+}

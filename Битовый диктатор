@@ -1,0 +1,18 @@
+#include <iostream>
+#include <fstream>
+//#include <cmath>
+using namespace std;
+int main(){  
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    int a, b, c;
+    input >> a >> b >> c; cout << a << endl;
+    a = a >> 2; 
+    a = a << 4; 
+    a = a^b; 
+    a = a << 1;
+    a = a | c; 
+    a = a & 1073741823;
+    output << (int)a;
+}

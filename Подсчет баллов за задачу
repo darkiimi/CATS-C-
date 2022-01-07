@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream output;
+    int sum = 0, count = 0, alter_sum = 0;
+    int s = 0;
+    
+    
+    output.open("output.txt", ios::out);
+	ifstream in("input.txt");
+	in >> count;
+	int nums[count];
+	char chars[count];
+	
+	
+	for (int i = 0; i < count; i++)
+	{
+	   
+	    in >> nums[i];
+	    
+	}
+	for (int i = 0; i < count; i++)
+	{
+	   
+	    in >> chars[i];
+	    
+	}
+	for (int i = 0; i < count; i++)
+	{
+	   
+	    if (chars[i] == 43)
+	    {
+	        sum += nums[i];
+	    }
+	    
+	}
+	
+	in.close();
+	output << sum;
+	output.close();
+}

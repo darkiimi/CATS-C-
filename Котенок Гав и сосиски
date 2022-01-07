@@ -1,0 +1,13 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    double speed;
+    float sausages, cat, dog;
+    input >> sausages >> cat >> dog;
+    speed = sausages / (cat + dog);
+    output << int(cat * speed) << " " << int(dog * speed);
+}

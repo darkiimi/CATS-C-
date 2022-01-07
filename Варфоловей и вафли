@@ -1,0 +1,21 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(){
+    /*fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);*/
+    int waffles1, waffles2, waffles_floor, floors;
+    floors = 0;
+    cin >> waffles1 >> waffles2 >> waffles_floor;
+    while (waffles2 >= waffles_floor && waffles1 >= waffles_floor){
+        waffles1 = waffles1 - waffles_floor;
+        waffles2 = waffles2 - waffles_floor;
+        floors = floors + 2;
+    }
+    if (waffles1 >= waffles_floor || waffles2 >= waffles_floor){
+        floors = floors + 1;
+        
+    }
+    cout << floors;
+}

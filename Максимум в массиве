@@ -1,0 +1,38 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream output;
+    int sum = 0, count = 0;
+    int s = 0;
+    long long int max_value = 0;
+    output.open("output.txt", ios::out);
+	ifstream in("input.txt");
+	in >> count;
+	long long int number[count];
+	
+	for (int i = 0; i < count; i++)
+	{
+	    in >> number[i];
+	    max_value = number[0];
+
+	    for (int i = 0; i < count; i++)
+	    {
+	        if (max_value < number[i])
+	        {
+	            max_value = number[i];
+	        }
+	        else
+	        {
+	            max_value = max_value;
+	        }
+
+	    }
+	}
+	output << max_value;
+	output.close();
+	in.close();
+}

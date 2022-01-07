@@ -1,0 +1,53 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+
+int main()
+{
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    
+    
+    int N;
+    input >> N;
+    
+    int posx, posy;
+    input >> posx >> posy;
+    
+    
+    
+    char E[N][N];
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if ((i + j) % 2 == 0)
+            {
+                E[i][j] = 35;
+            }
+            else
+            {
+                E[i][j] = 46;
+            }
+            if (j == posx - 1 || i == posy - 1)
+            {
+                E[i][j] = 42;
+                E[posy-1][posx-1] = 'X';
+            }
+            
+        }
+    }
+    
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            output << E[i][j];
+        }
+        
+        output << endl;
+    }
+}

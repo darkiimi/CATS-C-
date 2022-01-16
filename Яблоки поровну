@@ -1,0 +1,60 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+  fstream input, output;
+  input.open("input.txt", ios::in);
+  output.open("output.txt", ios::out);
+
+  int apples[3];
+  int min = 0, max = 0, main;
+  int help1, help2;
+
+  for (int i = 0; i < 3; ++i)
+  {
+    input >> apples[i];
+  }
+  if (apples[0] == apples[1] && (apples[1] == apples[2]))
+  {
+    output << "0";
+  }
+  else
+  {
+    if (apples[0] == apples[1] || apples[0] == apples[2]  || apples[1] == apples[2])
+    {
+      output << "-1";
+    }
+    else
+    {
+      for (int i = 0; i < 3; i++)
+	    {
+	        if (apples[max] < apples[i])
+	        {
+	            max = i;
+          }
+      }
+      for (int i = 0; i < 3; i++)
+	    {
+	        if (apples[min] > apples[i])
+	        {
+	            min = i;
+          }
+      }
+      
+      main = apples[0] + apples[1] + apples[2] -  apples[max] - apples[min];
+      if ((apples[max] + apples[min]) % 2 != 0)
+      {
+        output << "-1";
+      }
+      else
+      {
+        if ((apples[max] + apples[min]) / main % 2 == 0)
+        {
+          output << max + 1 << " " << min + 1 << " " << apples[max] - main; 
+        }
+      }
+    }
+  }
+}

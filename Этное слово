@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string sentence, fifth_word;
+    int fors, count_words = 0, count, length_sentence;
+    getline(cin, sentence);
+
+    string obnyl = "";
+    length_sentence = sentence.length();
+    cin >> count;
+    for (fors = 0; fors < length_sentence; ++fors)
+    {
+        if (sentence[fors] == ' ')
+        {
+            count_words = count_words + 1;
+            if (count_words == count)
+            {
+                cout << fifth_word;
+                return 0;
+            }
+            fifth_word = obnyl;
+            
+        }
+        else
+        {
+            fifth_word = fifth_word + sentence[fors];
+        }
+    }
+    cout << fifth_word;
+}

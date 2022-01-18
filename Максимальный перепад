@@ -1,0 +1,51 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+  int N, max_down = -10000, extramax = 0;
+  int matrix[1000][1000];
+  fstream input, output;
+  input.open("input.txt", ios::in);
+  output.open("output.txt", ios::out);
+
+  input >> N;
+
+  for (int i = 0; i < N; ++i)
+  {
+    for (int j = 0; j < N; ++j)
+    {
+      input >> matrix[i][j];
+    }
+  }
+
+
+  for (int i = 0; i < N; ++i)
+  {
+    for (int j = 0; j < N; ++j)
+    {
+      if (  (i <= N - 2) && (abs(matrix[i+1][j] - matrix[i][j])) > extramax )
+      {
+        extramax = abs(matrix[i+1][j] - matrix[i][j]);
+      }
+
+      if (  (j <= N - 2) && (abs(matrix[i][j+1] - matrix[i][j])) > extramax )
+      {
+        extramax = abs(matrix[i][j+1] - matrix[i][j]);
+      }
+
+      if (  (i >= 1) && (abs(matrix[i-1][j] - matrix[i][j])) > extramax )
+      {
+        extramax = abs(matrix[i-1][j] - matrix[i][j]);
+      }
+
+      if (  (j >= 1) && (abs(matrix[i][j-1] - matrix[i][j])) > extramax )
+      {
+        extramax = abs(matrix[i][j-1] - matrix[i][j]);
+      }
+    }
+  }
+  output << extramax;
+}

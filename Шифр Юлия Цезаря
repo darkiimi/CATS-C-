@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    string word;
+    int i;
+    
+    
+    fstream input, output;
+    input.open("input.txt", ios::in);
+    output.open("output.txt", ios::out);
+    
+    input >> word;
+    
+    for (i = 0; i < word.length(); i++)
+    {
+        if (word[i] == 'x') word[i] = 'a'; 
+        else
+        if (word[i] == 'y') word[i] = 'b'; 
+        else
+        if (word[i] == 'z') word[i] = 'c'; 
+        else
+        word[i] += 3;
+    }
+    output << word;
+}
